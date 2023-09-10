@@ -63,7 +63,7 @@ struct ImmersiveView: View {
                             print("break;")
                             break
                         }
-                        if i%100 == 0 {
+                        if i%100 == 0 || i == 299 {
                             print("root:i=\(i)")
                         }
                     }
