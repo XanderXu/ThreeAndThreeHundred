@@ -1,0 +1,204 @@
+{
+  "0A9B4653-B11E-4D6A-850E-C6FCB621626C" : {
+    "objectMetadataList" : [
+      [
+        "0A9B4653-B11E-4D6A-850E-C6FCB621626C",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "2D9D6BF1-4DC4-47DF-8A55-C05160F46F43" : {
+    "objectMetadataList" : [
+      [
+        "2D9D6BF1-4DC4-47DF-8A55-C05160F46F43",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "65F6F990-A780-4474-B78B-572E0E4E273D" : {
+    "objectMetadataList" : [
+      [
+        "65F6F990-A780-4474-B78B-572E0E4E273D",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "758C5C73-9F14-4C3A-BD42-66048679ECC2" : {
+    "objectMetadataList" : [
+      [
+        "758C5C73-9F14-4C3A-BD42-66048679ECC2",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "66168B71-AB05-424E-8B6C-D33D6E61B08F" : {
+    "objectMetadataList" : [
+      [
+        "66168B71-AB05-424E-8B6C-D33D6E61B08F",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "86666D1D-4C92-4012-9DFB-48A19A1A0CB0" : {
+    "objectMetadataList" : [
+      [
+        "86666D1D-4C92-4012-9DFB-48A19A1A0CB0",
+        "sun_low_v002",
+        "sun_geo"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "86666D1D-4C92-4012-9DFB-48A19A1A0CB0",
+        "sun_low_v002"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "86666D1D-4C92-4012-9DFB-48A19A1A0CB0",
+        "sun_low_v002",
+        "Materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "AF09ED6F-1707-48FD-8720-65B998362C09" : {
+    "objectMetadataList" : [
+      [
+        "AF09ED6F-1707-48FD-8720-65B998362C09",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "AF09ED6F-1707-48FD-8720-65B998362C09",
+        "Root",
+        "_GridMaterial"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "B57CAC64-7F17-42E8-9BEF-967739F1CF38" : {
+    "objectMetadataList" : [
+      [
+        "B57CAC64-7F17-42E8-9BEF-967739F1CF38",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "C1A88872-AE56-4925-8624-A0061ACD7C36" : {
+    "objectMetadataList" : [
+      [
+        "C1A88872-AE56-4925-8624-A0061ACD7C36",
+        "Root",
+        "Sun",
+        "sun_geo"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C1A88872-AE56-4925-8624-A0061ACD7C36",
+        "Sun"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C1A88872-AE56-4925-8624-A0061ACD7C36",
+        "Sun",
+        "sun_geo"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "CB766F92-EE55-4A63-9401-E7B8C009764D" : {
+    "objectMetadataList" : [
+      [
+        "CB766F92-EE55-4A63-9401-E7B8C009764D",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "CB766F92-EE55-4A63-9401-E7B8C009764D",
+        "Root",
+        "GridMaterial"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "D560BB77-AAF3-4BDE-B7C4-989332A4688B" : {
+    "objectMetadataList" : [
+
+    ]
+  },
+  "D66134B1-3681-4A8E-AFE5-29F257229F3B" : {
+    "objectMetadataList" : [
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root",
+        "GridMaterial",
+        "GridMaterial"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  }
+}
