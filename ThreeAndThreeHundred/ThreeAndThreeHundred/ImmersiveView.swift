@@ -41,7 +41,7 @@ struct ImmersiveView: View {
             
             for i in 0..<3 {
                 let randomPosition = SIMD3<Float>(x: Float.random(in: -0.5...0.5), y: 1.5 + Float.random(in: -0.2...0.2), z: -0.5 + Float.random(in: -0.2...0.2))
-                let sun = await StarEntity(position: randomPosition, initialDirection: directions[i])
+                let sun = await StarEntity(position: randomPosition, initialSpeed: directions[i])
                 sun.name = "\(i)"
                 content.add(sun)
             }

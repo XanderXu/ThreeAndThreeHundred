@@ -8,8 +8,7 @@
 import RealityKit
 
 struct UniversalGravitationComponent: Component {
-    // speed
-    var direction: SIMD3<Double>
+    var speed: SIMD3<Double>
     var mass: Double
 }
 
@@ -23,9 +22,8 @@ struct UniversalGravitationSystem: System {
 
     func update(context: SceneUpdateContext) {
         let stars = context.entities(matching: Self.query, updatingSystemWhen: .rendering)
-        for star in stars {
-            guard let star = star as? StarEntity else { continue }
-            var force: SIMD3<Double> = .zero
+        for star in stars where star is StarEntity {
+            var acceleration: SIMD3<Double> = .zero
             for otherStar in stars {
                 if otherStar == star { continue }
                 guard let otherSunMass = otherStar.components[UniversalGravitationComponent.self]?.mass else { continue }
@@ -34,12 +32,14 @@ struct UniversalGravitationSystem: System {
                 let actingForce = (G * otherSunMass) / (distanceSquared + Double.leastNormalMagnitude)
                 
                 let direction = SIMD3<Double>(normalize(otherStar.position - star.position))
-                force += max(actingForce, 0.005) * direction
+                acceleration += max(actingForce, 0.002) * direction
             }
-            
-            let massAdjustedTimesForce = force * context.deltaTime
-            star.components[UniversalGravitationComponent.self]!.direction += massAdjustedTimesForce
-            star.position += SIMD3<Float>(star.direction * context.deltaTime)
+            star.components[UniversalGravitationComponent.self]!.speed += acceleration * context.deltaTime
+        }
+        // 计算完成后，再统一更新位置，避免边遍历边修改造成逻辑上的误差
+        for star in stars {
+            guard let star = star as? StarEntity else { continue }
+            star.position += SIMD3<Float>(star.speed * context.deltaTime)
         }
     }
 }

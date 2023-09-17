@@ -9,8 +9,8 @@ import RealityKit
 import RealityKitContent
 
 class StarEntity: Entity {
-    var direction: SIMD3<Double> {
-        components[UniversalGravitationComponent.self]!.direction
+    var speed: SIMD3<Double> {
+        components[UniversalGravitationComponent.self]!.speed
     }
     
     var mass: Double {
@@ -19,7 +19,7 @@ class StarEntity: Entity {
     
     private let star: Entity
     
-    init(position: SIMD3<Float>, initialDirection: SIMD3<Double> = .zero, mass: Double = 1e6) async {
+    init(position: SIMD3<Float>, initialSpeed: SIMD3<Double> = .zero, mass: Double = 1e6) async {
         do {
             self.star = try await Entity(named: "Sun", in: realityKitContentBundle)
         } catch {
@@ -29,7 +29,7 @@ class StarEntity: Entity {
         addChild(star)
         
         self.position = position
-        components[UniversalGravitationComponent.self] = UniversalGravitationComponent(direction: initialDirection, mass: mass)
+        components[UniversalGravitationComponent.self] = UniversalGravitationComponent(speed: initialSpeed, mass: mass)
     }
     
     @MainActor required init() {
