@@ -15,4 +15,5 @@ class ViewModel {
     var isThreeHundred: Bool = false
     var threeHundredRoot: Entity = Entity()
     
+    var starModelEntity: StarEntity?
 }

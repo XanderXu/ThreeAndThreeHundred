@@ -10,7 +10,12 @@ import RealityKitContent
 
 class StarEntity: Entity {
     var speed: SIMD3<Double> {
-        components[UniversalGravitationComponent.self]!.speed
+        get {
+            components[UniversalGravitationComponent.self]!.speed
+        }
+        set {
+            components[UniversalGravitationComponent.self]!.speed = newValue
+        }
     }
     
     var mass: Double {

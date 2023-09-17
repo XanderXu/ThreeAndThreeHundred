@@ -41,9 +41,18 @@ struct ImmersiveView: View {
             
             for i in 0..<3 {
                 let randomPosition = SIMD3<Float>(x: Float.random(in: -0.5...0.5), y: 1.5 + Float.random(in: -0.2...0.2), z: -0.5 + Float.random(in: -0.2...0.2))
-                let sun = await StarEntity(position: randomPosition, initialSpeed: directions[i])
-                sun.name = "\(i)"
-                content.add(sun)
+                if let referenceModel = model.starModelEntity {
+                    let sun = referenceModel.clone(recursive: true)
+                    sun.position = randomPosition
+                    sun.speed = directions[i]
+                    sun.name = "\(i)"
+                    content.add(sun)
+                } else {
+                    let sun = await StarEntity(position: randomPosition, initialSpeed: directions[i])
+                    sun.name = "\(i)"
+                    content.add(sun)
+                    model.starModelEntity = sun
+                }
             }
             model.threeHundredRoot = Entity()
             content.add(model.threeHundredRoot)
@@ -52,10 +61,13 @@ struct ImmersiveView: View {
         .onChange(of: model.isThreeHundred) { oldValue, newValue in
             Task {
                 if newValue {
-                    for i in 0..<300 {
+                    let total = 300
+                    for i in 0..<total {
                         let randomPosition = SIMD3<Float>(x: Float.random(in: -1...1), y: 1.5 + Float.random(in: -0.5...0.5), z: -0.5 + Float.random(in: -0.5...0.5))
                         
-                        let sun = await StarEntity(position: randomPosition)
+                        let sun = model.starModelEntity!.clone(recursive: true)
+                        sun.position = randomPosition
+                        sun.speed = .zero
                         sun.name = "root-\(i)"
                         if model.isThreeHundred {
                             model.threeHundredRoot.addChild(sun)
@@ -63,7 +75,7 @@ struct ImmersiveView: View {
                             print("break;")
                             break
                         }
-                        if i%100 == 0 || i == 299 {
+                        if i%100 == 0 || i == total-1 {
                             print("root:i=\(i)")
                         }
                     }
