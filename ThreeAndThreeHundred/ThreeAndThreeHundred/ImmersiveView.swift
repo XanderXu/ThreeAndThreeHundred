@@ -34,7 +34,7 @@ struct ImmersiveView: View {
             
             var directions: [SIMD3<Double>] = []
             for _ in 0..<2 {
-                let direction = SIMD3<Double>.random(in: -0.1...0.1)
+                let direction = SIMD3<Double>.random(in: -0.05...0.05)
                 directions.append(direction)
             }
             directions.append(SIMD3<Double>.zero - directions[0] - directions[1])
@@ -63,7 +63,7 @@ struct ImmersiveView: View {
                 if newValue {
                     let total = 300
                     for i in 0..<total {
-                        let randomPosition = SIMD3<Float>(x: Float.random(in: -1...1), y: 1.5 + Float.random(in: -0.5...0.5), z: -0.5 + Float.random(in: -0.5...0.5))
+                        let randomPosition = SIMD3<Float>(x: Float.random(in: -10...10), y: 1.5 + Float.random(in: -2...2), z: -0.5 + Float.random(in: -10...10))
                         
                         let sun = model.starModelEntity!.clone(recursive: true)
                         sun.position = randomPosition
