@@ -22,11 +22,11 @@ struct UniversalGravitationSystem: System {
 
     func update(context: SceneUpdateContext) {
         let stars = context.entities(matching: Self.query, updatingSystemWhen: .rendering)
-        for star in stars where star is StarEntity {
+        for star in stars {
             var acceleration: SIMD3<Double> = .zero
             for otherStar in stars {
                 if otherStar == star { continue }
-                guard let otherSunMass = otherStar.components[UniversalGravitationComponent.self]?.mass else { continue }
+                let otherSunMass = otherStar.components[UniversalGravitationComponent.self]!.mass
                 
                 let distanceSquared = Double(distance_squared(otherStar.position, star.position))
                 let actingForce = (G * otherSunMass) / (distanceSquared + Double.leastNormalMagnitude)
@@ -37,8 +37,7 @@ struct UniversalGravitationSystem: System {
             star.components[UniversalGravitationComponent.self]!.speed += acceleration * context.deltaTime
         }
         // 计算完成后，再统一更新位置，避免边遍历边修改造成逻辑上的误差
-        for star in stars {
-            guard let star = star as? StarEntity else { continue }
+        for case let star as StarEntity in stars {
             star.position += SIMD3<Float>(star.speed * context.deltaTime)
         }
     }

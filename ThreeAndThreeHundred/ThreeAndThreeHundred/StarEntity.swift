@@ -18,10 +18,6 @@ class StarEntity: Entity {
         }
     }
     
-    var mass: Double {
-        components[UniversalGravitationComponent.self]!.mass
-    }
-    
     private let star: Entity
     
     init(position: SIMD3<Float>, initialSpeed: SIMD3<Double> = .zero, mass: Double = 1e6) async {
