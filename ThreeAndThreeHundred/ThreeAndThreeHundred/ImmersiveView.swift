@@ -11,6 +11,7 @@ import RealityKitContent
 
 struct ImmersiveView: View {
     @Environment(ViewModel.self) private var model
+    @State private var subscriptions = [EventSubscription]()
     var body: some View {
         RealityView { content in
             // Create a material with a star field on it.
@@ -57,6 +58,32 @@ struct ImmersiveView: View {
             model.threeHundredRoot = Entity()
             content.add(model.threeHundredRoot)
             model.threeHundredRoot.name = "root"
+            
+//            subscriptions.append(content.subscribe(to: SceneEvents.Update.self) { context in
+//                guard let root = context.scene.findEntity(named: "root") else {return}
+//                guard let star0 = context.scene.findEntity(named: "0") else {return}
+//                guard let star1 = context.scene.findEntity(named: "1") else {return}
+//                guard let star2 = context.scene.findEntity(named: "2") else {return}
+//                let stars = root.children + [star0, star1, star2]
+//                for star in stars {
+//                    var acceleration: SIMD3<Double> = .zero
+//                    for otherStar in stars {
+//                        if otherStar == star { continue }
+//                        let otherSunMass = otherStar.components[UniversalGravitationComponent.self]!.mass
+//                        
+//                        let distanceSquared = Double(distance_squared(otherStar.position, star.position))
+//                        let actingForce = (G * otherSunMass) / (distanceSquared + Double.leastNormalMagnitude)
+//                        
+//                        let direction = SIMD3<Double>(normalize(otherStar.position - star.position))
+//                        acceleration += max(actingForce, 0.002) * direction
+//                    }
+//                    star.components[UniversalGravitationComponent.self]!.speed += acceleration * context.deltaTime
+//                }
+//                // 计算完成后，再统一更新位置，避免边遍历边修改造成逻辑上的误差
+//                for case let star as StarEntity in stars {
+//                    star.position += SIMD3<Float>(star.speed * context.deltaTime)
+//                }
+//            })
         }
         .onChange(of: model.isThreeHundred) { oldValue, newValue in
             Task {
